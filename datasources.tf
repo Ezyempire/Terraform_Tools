@@ -10,3 +10,16 @@ data "aws_ami" "al2023" {
     values = ["al2023-ami-2023*"]
   }
 }
+
+data "aws_ami" "al2" {
+  most_recent = true
+  owners      = ["amazon"]
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-kernel-*"]
+  }
+}
